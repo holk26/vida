@@ -22,7 +22,7 @@ const ImagesGalleryX = () => {
       <Image        
         src={photo1}
         alt="Picture of the author"
-        className="d-flex w-100"
+        className="d-flex w-100 img-fluid"
         width={800} //automatically provided
         height={600} //automatically provided
         // blurDataURL="data:..." automatically provided
@@ -36,7 +36,7 @@ const ImagesGalleryX = () => {
       <Carousel.Item>
       <Image
         src={photo2}
-        className="d-block w-100"
+        className="d-block w-100 img-fluid"
         alt="Picture of the author"
         width={800} //automatically provided
         height={600} //automatically provided
@@ -52,7 +52,7 @@ const ImagesGalleryX = () => {
       <Carousel.Item>
       <Image
         src={photo3}
-        className="d-block w-100"
+        className="d-block w-100 img-fluid"
         alt="Picture of the author"
         width={800} //automatically provided
         height={600} //automatically provided
