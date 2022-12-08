@@ -21,7 +21,7 @@ const ImagesGalleryX = () => {
         <meta name="description" content="Agendas" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
+      <main className="text-center">
       <h1 className={styles.title}>
           Te amo con todo mi corazón 
        </h1>
