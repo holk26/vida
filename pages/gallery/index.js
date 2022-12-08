@@ -5,6 +5,7 @@ import photo2 from '../../public/img2.jpg'
 import photo3 from '../../public/img3.jpg'
 import { useState } from 'react';
 import styles from '../../styles/Home.module.css'
+import Head from 'next/head'
 
 const ImagesGalleryX = () => {
   const [index, setIndex] = useState(0);
@@ -15,8 +16,18 @@ const ImagesGalleryX = () => {
 
   return(
   <div className={styles.container}>
-     
-    
+     <Head>
+        <title>Ale y holk</title>
+        <meta name="description" content="Agendas" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <main className={styles.main}>
+      <h1 className={styles.title}>
+          Te amo con todo mi corazón 
+       </h1>
+       <h2>Ale y holk</h2>
+      </main>
+      
     <Carousel activeIndex={index} onSelect={handleSelect}>
       <Carousel.Item>
       <Image        
@@ -29,8 +40,8 @@ const ImagesGalleryX = () => {
         //placeholder="blur" // Optional blur-up while loading
       />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h3>Conocerte</h3>
+          <p>Vivir contigo y amanecer a tu lado realmente es lo mas lindo del mundo</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -45,8 +56,8 @@ const ImagesGalleryX = () => {
       />
 
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3>Aventuras</h3>
+          <p>Los mejores momentos de mi vida los he vivido contigo</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -61,9 +72,9 @@ const ImagesGalleryX = () => {
       />
 
         <Carousel.Caption>
-          <h3>Third slide label</h3>
+          <h3>Futuro</h3>
           <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            Es realmente mágico cuando pienso en nuestro futuro. vamos a lograrlo todo como equipo
           </p>
         </Carousel.Caption>
       </Carousel.Item>
