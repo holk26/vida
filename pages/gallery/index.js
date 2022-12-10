@@ -3,6 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import photo1 from '../../public/img1.jpg'
 import photo2 from '../../public/img2.jpg'
 import photo3 from '../../public/img3.jpg'
+import photo4 from '../../public/img4.jpg'
 import { useEffect, useState } from 'react';
 import styles from '../../styles/Home.module.css'
 import Head from 'next/head'
@@ -173,6 +174,21 @@ setEnviado(enviado+2);
           <p>
             Es realmente mágico cuando pienso en nuestro futuro. vamos a lograrlo todo como equipo
           </p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+      <Image
+        src={photo4}
+        className="d-block w-100 img-fluid"
+        alt="Picture of the author"
+        width={800} //automatically provided
+        height={600} //automatically provided
+        // blurDataURL="data:..." automatically provided
+        //placeholder="blur" // Optional blur-up while loading
+      />
+        <Carousel.Caption>
+          <h3>Tus besos</h3>
+          <p>Son de otro mundo, hace vibrar mi corazón</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
