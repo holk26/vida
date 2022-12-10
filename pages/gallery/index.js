@@ -6,13 +6,60 @@ import photo3 from '../../public/img3.jpg'
 import { useState } from 'react';
 import styles from '../../styles/Home.module.css'
 import Head from 'next/head'
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import axios from 'axios';
 
 const ImagesGalleryX = () => {
   const [index, setIndex] = useState(0);
+  const [cora, setCora] = useState(0);
+  const [message, setMessage] = useState(false);
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
+
+  function activateCora(){
+    console.log('Te amo'+cora);
+    setCora(cora + 1);
+  }
+
+  //https://api.callmebot.com/whatsapp.php?phone=573102796853&text=This+is+a+test&apikey=7625476
+
+  function SendWhatsapp(text){
+    if(message){
+      let userInfo = {
+        phone: '573102796853',
+        text: 'prueba hola ',
+        apikey: '7625476'
+    }
+      //https://api.callmebot.com/whatsapp.php?phone=+34123123123&text=This+is+a+test+from+CallMeBot&apikey=1234567890
+      axios.get('https://api.callmebot.com/whatsapp.php', {
+        params: userInfo
+    });
+
+    }
+    
+    setMessage(false);
+    setCora(cora + 1);
+  }
+
+  function SendMessage(){
+    return(
+      <div>
+        <Form.Label htmlFor="inputPassword5">Password</Form.Label>
+      <Form.Control
+        type="text"
+        id="inputPassword5"
+        aria-describedby="passwordHelpBlock"
+      />
+      <Form.Text id="passwordHelpBlock" muted>
+        Your password must be 8-20 characters long, contain letters and numbers,
+        and must not contain spaces, special characters, or emoji.
+      </Form.Text>
+      </div>
+    );
+  }
 
   return(
   <div className={styles.container}>
@@ -23,9 +70,15 @@ const ImagesGalleryX = () => {
       </Head>
       <main className="text-center">
       <h1 className={styles.title}>
-          Te amo con todo mi corazón 
+          Te amo con todo mi corazón {cora > 2 && <>X {cora}</>}
+          {cora > 20 && <><h2>Eres mi chica lista</h2></>}
+          {cora > 50 && <><h2>Yo te amo muchísimo mas preciosa</h2></>}          
+          {cora > 60 && <><h2>Enserio preciosa Que feliz me siento, te amo</h2></>}
+          {cora > 200 && <><h2>Si llegaste hasta aquí es una señal, te amoooo  </h2></>}
+          {cora > 1000 && <><h2>OMG de verdad desbloqueaste este nivel? Nivel valido para que escojas el regalo que quieras - Te amo locamente</h2></>}
        </h1>
        <h2>Ale y holk</h2>
+       <Button variant="light" onClick={activateCora}>TOCA MI CORAZÓN</Button>
       </main>
       
     <Carousel activeIndex={index} onSelect={handleSelect}>
