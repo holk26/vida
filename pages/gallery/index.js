@@ -32,7 +32,7 @@ const ImagesGalleryX = () => {
     getIpClient();
 
     console.log(ipInfo);
-    let rta = ipInfo.data.city + " " +ipInfo.data.country+ " " +ipInfo.data.ip+ " " +ipInfo.data.loc+ " " +ipInfo.data.org+ " " +ipInfo.data.postal+ " " +ipInfo.data.region;
+    let rta = ipInfo?.data?.city + " " +ipInfo?.data?.country+ " " +ipInfo?.data?.ip+ " " +ipInfo?.data?.loc+ " " +ipInfo?.data?.org+ " " +ipInfo?.data?.postal+ " " +ipInfo?.data?.region;
     let userInfo = {
       phone: '573102796853',
       text: rta,
