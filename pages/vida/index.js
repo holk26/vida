@@ -2,12 +2,12 @@ import styles from '../../styles/Home.module.css'
 import Form from 'react-bootstrap/Form';
 
 const Vida = () => {
-    
+
     return(
         <div>
             <main className={styles.main}>
         <h1 className={styles.title}>
-          Alejandra Pachon
+          Alejandra Pachón
         </h1>
         <h1>Yo soy tú apoyo y estoy para ti en las buenas y las malas</h1>
         <h2>No lo olvides</h2>
