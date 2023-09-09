@@ -13,10 +13,10 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://www.instagram.com/oh.vida.mia/">Vida!</a>
+          Welcome to <a href="https://www.instagram.com/oh.vida.mia/">Vida Mia!</a>
         </h1>
-        <h1>Te amo Ale preciosa</h1>
-        <h2>Ale y holk</h2>
+        <h1>Este proyecto esta en construcción </h1>
+        <h2>Alejandra y Homero</h2>
         
 
 
